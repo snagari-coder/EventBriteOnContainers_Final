@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewData["Title"] = "CreateEvent";
+    @model WebMvc.ViewModels.Input_Event_Data
+ }
+
+
+
+
+
+
+<h4 class="esh-orders_new-title">Create a new Event</h4>
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="CreateEvent" asp-controller="PostEvent" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="@Model.Inp_Event_Name" class="esh-orders_new-title">Event Name</label>
+                <input asp-for="@Model.Inp_Event_Name" class="form-control form-input" type="text" placeholder="EventName" />
+            </div>
+            <div class="form-group">
+
+                <label asp-for="@Model.Inp_Event_Desc" class="esh-orders_new-title">Event Desc</label>
+                <input asp-for="@Model.Inp_Event_Desc" class="form-control form-input" type="text" placeholder="EventDesc" />
+            </div>
+            <div class="form-group">
+
+                <label asp-for="@Model.Inp_Price" class="esh-orders_new-title">Event Price</label>
+                <input asp-for="@Model.Inp_Price" class="form-control form-input" type="number" step=0.01 placeholder="Price" />
+            </div>
+            <div class="form-group">
+
+                <label asp-for="@Model.Inp_Start_Time" class="esh-orders_new-title">Event StartTime</label>
+                <input asp-for="@Model.Inp_Start_Time" class="form-control form-input" type="datetime-local" placeholder="Starttime" />
+            </div>
+            <div class="form-group">
+
+                <label asp-for="@Model.Inp_End_Time" class="esh-orders_new-title">Event EndTime</label>
+                <input asp-for="@Model.Inp_End_Time" class="form-control form-input" type="datetime-local" placeholder="Endtime" />
+            </div>
+            <div>
+                <section class="esh-CreateEventCatalog-filters">
+                    <label asp-for="@Model.categoryFilterApplied" class="esh-orders_new-createtitle">Event Categories</label>
+                    <div>
+                        <label class="esh-EventCatalog-label" data-title="Category">
+                            <select asp-for="@Model.categoryFilterApplied" asp-items="@Model.Categories" class="esh-CreateEventCatalog-filter"></select>
+                        </label>
+                    </div>
+                </section>
+
+            </div>
+            <div>
+                <section class="esh-CreateEventCatalog-filters">
+                    <label asp-for="@Model.formatFilterApplied" class="esh-orders_new-createtitle">Event Format</label>
+                    <div>
+                        <label class="esh-EventCatalog-label" data-title="Formats">
+                            <select asp-for="@Model.formatFilterApplied" asp-items="@Model.Formats" class="esh-CreateEventCatalog-filter"></select>
+                        </label>
+                    </div>
+                </section>
+
+            </div>
+
+            <div>
+                <section class="esh-CreateEventCatalog-filters">
+                    <label asp-for="@Model.zipCodeFilterApplied" class="esh-orders_new-createtitle">Event ZipCode</label>
+                    <div>
+                        <label class="esh-EventCatalog-label" data-title="Zipcode">
+                            <select asp-for="@Model.zipCodeFilterApplied" asp-items="@Model.ZipCodes" class="esh-CreateEventCatalog-filter"></select>
+                        </label>
+                    </div>
+                </section>
+
+            </div>
+
+            <div>
+                <section class="esh-CreateEventCatalog-filters">
+                    <label asp-for="@Model.audienceFilterApplied" class="esh-orders_new-title">Event Audience</label>
+                    <div>
+                        <label class="esh-EventCatalog-label" data-title="Audience">
+                            <select asp-for="@Model.audienceFilterApplied" asp-items="@Model.Audiences" class="esh-CreateEventCatalog-filter"></select>
+                        </label>
+                    </div>
+                </section>
+
+            </div>
+            <div>
+                <section class="esh-CreateEventCatalog-filters">
+                    <label asp-for="@Model.kindFilterApplied" class="esh-orders_new-title">Event Kinds</label>
+                    <div>
+                        <label class="esh-EventCatalog-label" data-title="Kinds">
+                            <select asp-for="@Model.kindFilterApplied" asp-items="@Model.Kinds" class="esh-CreateEventCatalog-filter"></select>
+                        </label>
+                    </div>
+                </section>
+
+            </div>
+            <div>
+                <section class="esh-CreateEventCatalog-filters">
+                    <label asp-for="@Model.languageFilterApplied" class="esh-orders_new-title">Event Languages</label>
+                    <div>
+                        <label class="esh-EventCatalog-label" data-title="Languages">
+                            <select asp-for="@Model.languageFilterApplied" asp-items="@Model.Languages" class="esh-CreateEventCatalog-filter"></select>
+                        </label>
+                    </div>
+                </section>
+
+            </div>
+            <div>
+                <section class="esh-CreateEventCatalog-filters">
+                    <label asp-for="@Model.locationFilterApplied" class="esh-orders_new-title">Event Locations</label>
+                    <div>
+                        <label class="esh-EventCatalog-label" data-title="Location">
+                            <select asp-for="@Model.locationFilterApplied" asp-items="@Model.Locations" class="esh-CreateEventCatalog-filter"></select>
+                        </label>
+                    </div>
+                </section>
+
+            </div>
+            <div>
+                <label for="Image"  class="esh-orders_new-title">Event Picture</label>
+                <input asp-for="@Model.File" type="file" class="form-control form-input" />
+            </div>
+            <div>
+                <div class="col-md-6">
+                    <input id="pay-button" type="submit" value="[SUBMIT]" name="action" class="esh-CreateEventCatalog-button" asp-controller="PostEvent" asp-action="ProcessEvent" />
+                </div>
+
+            </div>
+
+
+        </form>
+    </div>
+</div>
+

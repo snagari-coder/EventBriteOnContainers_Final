@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewData["Title"] = "EventItemView";
+    @model WebMvc.Models.EventCatalogItem
+}
+
+    <form>
+        <div class="container">
+            <div class='esh-float-left'>
+                <ul style="list-style-type: none">
+                    <li>
+                        <img class="esh-EventCatalog-thumbnail" src="@Model.Event_Pictureurl" />
+                    </li>
+                    <li>
+                        <input class="esh-EventCatalog-button" asp-controller="Cart" asp-action="AddtoCart" type="submit" value="[ GET TICKETS ]" />
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class='esh-float-left'>
+                <ul>
+                    <li>
+                        <span>Name : @Model.Event_Name</span>
+                    </li>
+                    <li>
+                        <span>Description: @Model.Event_Desc</span>
+                    </li>
+                    <li>
+                        <span>Price:@Model.Event_Price.ToString("N2")</span>
+                    </li>
+                    <li>
+                        <span>StartTime: @Model.Event_Start_Time</span>
+                    </li>
+                    <li>
+                        <span>EndTime: @Model.Event_End_Time</span>
+                    </li>
+                    <li>
+                        <span>Language: @Model.Event_Language</span>
+                    </li>
+                    <li>
+                        <span>Organiser_Email: @Model.Event_Organiser</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <input type="hidden" asp-for="@Model.Id" name="Id" />
+        <input type="hidden" asp-for="@Model.Event_Pictureurl" name="Event_Pictureurl" />
+        <input type="hidden" asp-for="@Model.Event_Name" name="Event_Name" />
+        <input type="hidden" asp-for="@Model.Event_Desc" name="Event_Desc" />
+        <input type="hidden" asp-for="@Model.Event_Price" name="Event_Price" />
+        <input type="hidden" asp-for="@Model.Event_Start_Time" name="Event_Start_Time" />
+        <input type="hidden" asp-for="@Model.Event_End_Time" name="Event_End_Time" />
+        <input type="hidden" asp-for="@Model.Event_Organiser" name="Event_Organiser" />
+        <input type="hidden" asp-for="@Model.Event_Location" name="Event_Location" />
+        <input type="hidden" asp-for="@Model.Event_LocationId" name="Event_LocationId" />
+        <input type="hidden" asp-for="@Model.Event_Language" name="Event_Language" />
+        <input type="hidden" asp-for="@Model.Event_LanguageId" name="Event_LanguageId" />
+        <input type="hidden" asp-for="@Model.Event_Kind" name="Event_Kind" />
+        <input type="hidden" asp-for="@Model.Event_KindId" name="Event_KindId" />
+        <input type="hidden" asp-for="@Model.Event_ZipCode" name="Event_ZipCode" />
+        <input type="hidden" asp-for="@Model.Event_ZipCodeId" name="Event_ZipcodeId" />
+        <input type="hidden" asp-for="@Model.Event_Format" name="Event_Format" />
+        <input type="hidden" asp-for="@Model.Event_FormatId" name="Event_FormatId" />
+        <input type="hidden" asp-for="@Model.Event_Category" name="Event_Category" />
+        <input type="hidden" asp-for="@Model.Event_CategoryId" name="Event_CategoryId" />
+        <input type="hidden" asp-for="@Model.Event_Audience" name="Event_Audience" />
+        <input type="hidden" asp-for="@Model.Event_AudienceId" name="Event_AudienceId" />
+
+    </form>
+
+
+

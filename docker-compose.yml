@@ -1,0 +1,147 @@
+version: '3.4'
+networks:
+  frontend:
+  backend:
+
+
+services:
+  eventcatalog:
+    image: events/eventcatalog
+    build:
+      context: .\EventCatalog
+      dockerfile: Dockerfile
+    environment:
+      ExternalCatalogBaseUrl: http://localhost:7822
+      IdentityUrl: http://192.168.1.115:7700
+      DatabaseServer: mssqlserver
+      DatabaseName: EventCatalogdb
+      DatabaseUser: sa
+      DatabasePassword: ProductApi(!)
+    ports:
+      - "7822:80"
+    container_name: eventscatalogapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver
+  
+  WebMvc:
+    image: events/webmvc
+    build:
+      context: .\WebMvc
+      dockerfile: Dockerfile
+    environment:
+      CatalogUrl: http://eventcatalog
+      IdentityUrl: http://192.168.1.115:7700
+      CallBackUrl: http://localhost:7823
+      CartUrl: http://cart
+      OrderUrl: http://order
+      StripePublicKey: pk_test_51HCsg3JFZDsW6hwQVDvvS8YuzvQtUEPHoUisdsnSoQsQ74ssNCVMXCOUNcYPcCQO1vkSrkZBxY6zdJzyUEhKj8cu00yeSlglMu
+      StripePrivatekey: sk_test_51HCsg3JFZDsW6hwQbUB1a3qo3WbU2jQGYJsJF5sQL8Dl8TcwVcQEE1pSNCtS5kAxHmVSBzzvJO0F69EE7LIrK6PG00ZouGvxmH
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "7823:80"
+    container_name: WebEventShop
+    networks:
+      - frontend
+    depends_on:
+      - eventcatalog
+      - TokenServer
+      - cart
+      - order
+      
+  TokenServer:
+    image: events/tokenseerver
+    build:
+      context: .\TokenServiceApi
+      dockerfile: Dockerfile
+    environment:
+      Mvcclient: http://localhost:7823
+    ports:
+      - "7700:80"
+    container_name: TokenServer
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver   
+
+  cart:
+    image: events/cartapi
+    build:
+      context: .\CartApi
+      dockerfile: Dockerfile
+    environment:
+      ConnectionString: basket.data
+      IdentityUrl: http://192.168.1.115:7700
+    ports:
+      - "7824:80"
+    container_name: cartapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - basket.data
+      - TokenServer
+      - rabbitmq
+
+  order:
+    build:
+      context: .\OrderApi
+      dockerfile: Dockerfile
+    image: events/orderapi
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      IdentityUrl: http://192.168.1.115:7700
+      DatabaseServer: mssqlserver
+      DatabaseName: OrdersDb
+      DatabaseUser: sa
+      DatabasePassword: ProductApi(!)
+    ports:
+      - "7827:80"
+    container_name: orderapi
+    networks:
+      - backend
+      - frontend
+    depends_on:
+      - mssqlserver
+      - TokenServer
+      - rabbitmq
+
+
+  
+  mssqlserver:
+    image: "microsoft/mssql-server-linux:latest"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: ProductApi(!)
+    ports:
+      - "1555:1433" 
+    container_name: eventssqlServer
+    networks:
+      - backend
+
+  
+  basket.data:
+    image: redis
+    container_name: basketdata
+    ports:
+      - "7825:6379"
+    networks:
+      - backend
+  
+
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: myrabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+      - "5671:5671"
+    volumes:
+      - ~/rabbitmq:/var/lib/rabbitmq/mnesia
+    networks:
+      - backend

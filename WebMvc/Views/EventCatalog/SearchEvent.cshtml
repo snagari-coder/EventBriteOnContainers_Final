@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "SearchEvent";
+}
+
+
+@{
+    ViewData["Title"] = "Event Catalog";
+    @model WebMvc.ViewModels.EventCatalogIndexViewModel
+}
+
+<div class="container">
+
+
+
+    <form asp-action="SearchEvent" asp-controller="EventCatalog" method="post">
+        <div class="pull-right">
+            <input data-provide="typeahead" asp-for="@Model.searchstring" data-items="4" type="text" class="span2 search-query" />
+            <button class="btn">Search </button>
+        </div>
+    </form>
+
+</div>
+
+
+
+<h2> Search Results</h2>
+<div class="container">
+    @if (Model.EventItems.Count() > 0)
+    {
+        @Html.Partial("_pagination", Model.PaginationInfo)
+
+        <div class="esh-catalog-items row">
+            @foreach (var catalogItem in Model.EventItems)
+            {
+                <div class="esh-catalog-item col-md-4">
+                    @Html.Partial("_product", catalogItem)
+                </div>
+            }
+        </div>
+
+        @Html.Partial("_pagination", Model.PaginationInfo)
+    }
+    else
+    {
+        <div class="esh-catalog-items row">
+            THERE ARE NO RESULTS THAT MATCH YOUR SEARCH
+        </div>
+    }
+</div>

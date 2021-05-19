@@ -1,0 +1,81 @@
+@using WebMvc.ViewModels
+ 
+
+@model WebMvc.Models.OrderModels.Order
+@{
+    ViewData["Title"] = "Order Detail";
+}
+<div class="esh-orders_detail">
+    @Html.Partial("_Header", new List<Header>() { new Header() { Controller = "Order", Text = "Back to Orders" } })
+    <div class="container">
+        <section class="esh-orders_detail-section">
+            <article class="esh-orders_detail-titles row">
+                <section class="esh-orders_detail-title col-xs-3">Order number</section>
+                <section class="esh-orders_detail-title col-xs-3">Date</section>
+                <section class="esh-orders_detail-title col-xs-3">Total</section>
+                <section class="esh-orders_detail-title col-xs-3">Status</section>
+            </article>
+            <article class="esh-orders_detail-items row">
+                <section class="esh-orders_detail-item col-xs-3">@Model.OrderId</section>
+                <section class="esh-orders_detail-item col-xs-3">@Model.OrderDate</section>
+                <section class="esh-orders_detail-item col-xs-3">$ @Math.Round(Model.OrderTotal, 2)</section>
+                <section class="esh-orders_detail-item col-xs-3">@Model.OrderStatus</section>
+            </article>
+        </section>
+          <br />
+        <div>
+
+            <section class="esh-orders_new-section">
+                <article class="esh-orders_new-titles row">
+                    <section class="esh-orders_new-title col-xs-12">Order details</section>
+                </article>
+
+                @for (int i = 0; i < Model.OrderItems.Count; i++)
+                {
+                    var item = Model.OrderItems[i];
+
+                    <br />
+                 <div class="container">
+                   
+                        <div class='esh-float-left'>
+                            <section style="list-style-type: none">
+
+                                <img class="esh-basket-image" src=@item.PictureUrl>
+
+                             </section>
+                         </div>
+
+                    <div class='esh-float-left'>
+                        <ul>
+                            <li>
+                                <span>Event Name : @item.ProductName</span>
+                            </li>
+                            <li>
+                                <span>Ticket Cost : $@Math.Round(item.UnitPrice, 2)</span>
+                            </li>
+                            <li>
+                                <span>No of Tickets : @item.Units</span>
+                            </li>
+                            <li>
+                                <span>Total Cost : $ @Math.Round(item.Units * item.UnitPrice, 2)</span>
+                            </li>
+                        </ul>
+                    </div>
+                 
+                  </div>
+                 }
+            </section>
+        </div>
+
+            <section class="esh-orders_detail-section esh-orders_detail-section--right">
+                <article class="esh-orders_detail-titles esh-basket-titles--clean row">
+                    <section class="esh-orders_detail-title col-xs-9"></section>
+                    <section class="esh-orders_detail-title col-xs-2">TOTAL</section>
+                </article>
+                <article class="esh-orders_detail-items row">
+                    <section class="esh-orders_detail-item col-xs-9"></section>
+                    <section class="esh-orders_detail-item esh-orders_detail-item--mark col-xs-2">$ @Math.Round(Model.OrderTotal, 2)</section>
+                </article>
+            </section>
+    </div>
+</div>

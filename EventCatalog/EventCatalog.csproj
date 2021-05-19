@@ -1,0 +1,153 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>5338c403-4613-412b-9a4f-ca547d0a1b7d</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200615072143_Initial.cs" />
+    <Compile Remove="Migrations\20200615072143_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615072518_Initial.cs" />
+    <Compile Remove="Migrations\20200615072518_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615073256_Initial.cs" />
+    <Compile Remove="Migrations\20200615073256_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615074059_Initial.cs" />
+    <Compile Remove="Migrations\20200615074059_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615074217_Initial.cs" />
+    <Compile Remove="Migrations\20200615074217_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615074837_Initial.cs" />
+    <Compile Remove="Migrations\20200615074837_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615184300_Initial2.cs" />
+    <Compile Remove="Migrations\20200615184300_Initial2.Designer.cs" />
+    <Compile Remove="Migrations\20200615184820_Initial.cs" />
+    <Compile Remove="Migrations\20200615184820_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615185022_Initial.cs" />
+    <Compile Remove="Migrations\20200615185022_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615220104_Initial.cs" />
+    <Compile Remove="Migrations\20200615220104_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615220606_Initial.cs" />
+    <Compile Remove="Migrations\20200615220606_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615220917_Initial.cs" />
+    <Compile Remove="Migrations\20200615220917_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615221227_Initial.cs" />
+    <Compile Remove="Migrations\20200615221227_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615221416_Initial.cs" />
+    <Compile Remove="Migrations\20200615221416_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615222409_Initial.cs" />
+    <Compile Remove="Migrations\20200615222409_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615231350_Initial.cs" />
+    <Compile Remove="Migrations\20200615231350_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200615232731_Initial.cs" />
+    <Compile Remove="Migrations\20200615232731_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616011311_Initial.cs" />
+    <Compile Remove="Migrations\20200616011311_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616012526_Initial.cs" />
+    <Compile Remove="Migrations\20200616012526_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616013716_Initial.cs" />
+    <Compile Remove="Migrations\20200616013716_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616015322_Initial.cs" />
+    <Compile Remove="Migrations\20200616015322_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616070505_Initial.cs" />
+    <Compile Remove="Migrations\20200616070505_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616073059_Initial.cs" />
+    <Compile Remove="Migrations\20200616073059_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616230644_Initial.cs" />
+    <Compile Remove="Migrations\20200616230644_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616231718_Initial.cs" />
+    <Compile Remove="Migrations\20200616231718_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616232406_Initial.cs" />
+    <Compile Remove="Migrations\20200616232406_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616233809_Initial.cs" />
+    <Compile Remove="Migrations\20200616233809_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200616234012_Initial.cs" />
+    <Compile Remove="Migrations\20200616234012_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617021006_Initial.cs" />
+    <Compile Remove="Migrations\20200617021006_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617053133_Intial.cs" />
+    <Compile Remove="Migrations\20200617053133_Intial.Designer.cs" />
+    <Compile Remove="Migrations\20200617053200_Initial.cs" />
+    <Compile Remove="Migrations\20200617053200_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617054309_Initial.cs" />
+    <Compile Remove="Migrations\20200617054309_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617055157_Initial.cs" />
+    <Compile Remove="Migrations\20200617055157_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617060306_Initial.cs" />
+    <Compile Remove="Migrations\20200617060306_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617061949_Initial.cs" />
+    <Compile Remove="Migrations\20200617061949_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617195511_Initial.cs" />
+    <Compile Remove="Migrations\20200617195511_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617195833_Initial.cs" />
+    <Compile Remove="Migrations\20200617195833_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200617200325_Initial.cs" />
+    <Compile Remove="Migrations\20200617200325_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200618014033_Initial.cs" />
+    <Compile Remove="Migrations\20200618014033_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200618014536_Initial.cs" />
+    <Compile Remove="Migrations\20200618014536_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200620054021_Initial.cs" />
+    <Compile Remove="Migrations\20200620054021_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200621121559_Initial.cs" />
+    <Compile Remove="Migrations\20200621121559_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200621123319_Initial.cs" />
+    <Compile Remove="Migrations\20200621123319_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200621123607_Initial.cs" />
+    <Compile Remove="Migrations\20200621123607_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200623000624_Initial.cs" />
+    <Compile Remove="Migrations\20200623000624_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200623230650_Initial.cs" />
+    <Compile Remove="Migrations\20200623230650_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200623232647_Initial.cs" />
+    <Compile Remove="Migrations\20200623232647_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200623233703_Initial.cs" />
+    <Compile Remove="Migrations\20200623233703_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200623234900_Initial.cs" />
+    <Compile Remove="Migrations\20200623234900_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200623235455_Initial.cs" />
+    <Compile Remove="Migrations\20200623235455_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200623235948_Initial.cs" />
+    <Compile Remove="Migrations\20200623235948_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200624000425_Initial.cs" />
+    <Compile Remove="Migrations\20200624000425_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200624000645_Initial.cs" />
+    <Compile Remove="Migrations\20200624000645_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200624001247_Initial.cs" />
+    <Compile Remove="Migrations\20200624001247_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200624001729_Initial.cs" />
+    <Compile Remove="Migrations\20200624001729_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200624010217_Initial.cs" />
+    <Compile Remove="Migrations\20200624010217_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200626070145_Initial.cs" />
+    <Compile Remove="Migrations\20200626070145_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200724055905_initial.cs" />
+    <Compile Remove="Migrations\20200724055905_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200731061550_Initial.cs" />
+    <Compile Remove="Migrations\20200731061550_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+
+</Project>
