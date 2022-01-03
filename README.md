@@ -30,3 +30,5 @@ Users can create orders with all events linked to their accounts (Token service)
 Order information is storage in a Database.
 Stripe (Stripe.com) is integrated to process credit card transaction on the checkout of an order.
 RabbitMQ is integrated to queue up the order messages to be processed.
+
+https://www.youtube.com/watch?v=Sub7ss9F-P0
